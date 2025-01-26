@@ -3,15 +3,14 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using GildedRose;
-using VerifyXunit;
-
-using Xunit;
+using NUnit.Framework;
+using VerifyNUnit;
 
 namespace GildedRoseTests
 {
     public class ApprovalTest
     {
-        [Fact]
+        [Test]
         public Task ThirtyDays()
         {
             var fakeoutput = new StringBuilder();

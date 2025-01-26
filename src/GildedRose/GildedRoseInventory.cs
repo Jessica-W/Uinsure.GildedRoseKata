@@ -11,12 +11,13 @@ namespace GildedRose
             this.Items = Items;
         }
 
-        public void UpdateQuality()
+        public void UpdateItem()
         {
             foreach (var item in Items)
             {
                 if (item.Name == "Sulfuras, Hand of Ragnaros")
                 {
+                    UpdateLegendaryItemQuality(item);
                     continue;
                 }
 
@@ -35,6 +36,11 @@ namespace GildedRose
                     UpdateStandardItemQuality(item);
                 }
             }
+        }
+
+        private static void UpdateLegendaryItemQuality(Item item)
+        {
+            item.Quality = 80;
         }
 
         private void UpdateStandardItemQuality(Item item)
