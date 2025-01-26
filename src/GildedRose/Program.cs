@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GildedRoseKata
+namespace GildedRose
 {
     public class Program
     {
@@ -37,7 +37,7 @@ namespace GildedRoseKata
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            var app = new GildedRose(Items);
+            var app = new GildedRoseInventory(Items);
 
             for (var i = 0; i < 31; i++)
             {

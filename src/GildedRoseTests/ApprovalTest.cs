@@ -1,11 +1,8 @@
-﻿
-using GildedRoseKata;
-
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-
+using GildedRose;
 using VerifyXunit;
 
 using Xunit;
