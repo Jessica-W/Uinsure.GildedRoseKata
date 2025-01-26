@@ -20,54 +20,48 @@ namespace GildedRose
                     continue;
                 }
 
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (item.Name is "Aged Brie" or "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    DecreaseItemQuality(item);
+                    IncreaseItemQuality(item);
+
+                    if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                    {
+                        if (item.SellIn < 11)
+                        {
+                            IncreaseItemQuality(item);
+                        }
+
+                        if (item.SellIn < 6)
+                        {
+                            IncreaseItemQuality(item);
+                        }
+                    }
                 }
                 else
                 {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality += 1;
-
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (item.SellIn < 11)
-                            {
-                                IncreaseItemQuality(item);
-                            }
-
-                            if (item.SellIn < 6)
-                            {
-                                IncreaseItemQuality(item);
-                            }
-                        }
-                    }
+                    DecreaseItemQuality(item);
                 }
 
                 item.SellIn -= 1;
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name != "Aged Brie")
+                    if (item.Name == "Aged Brie")
                     {
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            DecreaseItemQuality(item);
-                        }
-                        else
-                        {
-                            item.Quality = 0;
-                        }
+                        IncreaseItemQuality(item);
+                    }
+                    else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                    {
+                        item.Quality = 0;
                     }
                     else
                     {
-                        IncreaseItemQuality(item);
+                        DecreaseItemQuality(item);
                     }
                 }
             }
         }
-        
+
         private void IncreaseItemQuality(Item item)
         {
             if (item.Quality < 50)
