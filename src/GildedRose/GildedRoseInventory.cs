@@ -19,6 +19,8 @@ namespace GildedRose
                 {
                     continue;
                 }
+                
+                item.SellIn -= 1;
 
                 if (item.Name == "Aged Brie")
                 {
@@ -28,12 +30,12 @@ namespace GildedRose
                 {
                     IncreaseItemQuality(item);
 
-                    if (item.SellIn < 11)
+                    if (item.SellIn < 10)
                     {
                         IncreaseItemQuality(item);
                     }
 
-                    if (item.SellIn < 6)
+                    if (item.SellIn < 5)
                     {
                         IncreaseItemQuality(item);
                     }
@@ -42,8 +44,6 @@ namespace GildedRose
                 {
                     DecreaseItemQuality(item);
                 }
-
-                item.SellIn -= 1;
 
                 if (item.SellIn < 0)
                 {
