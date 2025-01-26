@@ -19,50 +19,64 @@ namespace GildedRose
                 {
                     continue;
                 }
-                
+
                 item.SellIn -= 1;
 
                 if (item.Name == "Aged Brie")
                 {
-                    IncreaseItemQuality(item);
+                    UpdateAgedBrieQuality(item);
                 }
                 else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    IncreaseItemQuality(item);
-
-                    if (item.SellIn < 10)
-                    {
-                        IncreaseItemQuality(item);
-                    }
-
-                    if (item.SellIn < 5)
-                    {
-                        IncreaseItemQuality(item);
-                    }
+                    UpdateBackstagePassQuality(item);
                 }
                 else
                 {
-                    DecreaseItemQuality(item);
-                }
-
-                if (item.SellIn < 0)
-                {
-                    if (item.Name == "Aged Brie")
-                    {
-                        IncreaseItemQuality(item);
-                    }
-                    else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                    {
-                        item.Quality = 0;
-                    }
-                    else
-                    {
-                        DecreaseItemQuality(item);
-                    }
+                    UpdateStandardItemQuality(item);
                 }
             }
         }
-        
+
+        private void UpdateStandardItemQuality(Item item)
+        {
+            DecreaseItemQuality(item);
+
+            if (item.SellIn < 0)
+            {
+                DecreaseItemQuality(item);
+            }
+        }
+
+        private void UpdateBackstagePassQuality(Item item)
+        {
+            IncreaseItemQuality(item);
+
+            if (item.SellIn < 10)
+            {
+                IncreaseItemQuality(item);
+            }
+
+            if (item.SellIn < 5)
+            {
+                IncreaseItemQuality(item);
+            }
+
+            if (item.SellIn < 0)
+            {
+                item.Quality = 0;
+            }
+        }
+
+        private void UpdateAgedBrieQuality(Item item)
+        {
+            IncreaseItemQuality(item);
+
+            if (item.SellIn < 0)
+            {
+                IncreaseItemQuality(item);
+            }
+        }
+
         private void IncreaseItemQuality(Item item)
         {
             if (item.Quality < 50)
