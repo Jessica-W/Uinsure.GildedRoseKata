@@ -29,6 +29,11 @@ namespace GildedRose
                 return new AgedItem(item);
             }
 
+            if (item.Name == "Sulfuras, Hand of Ragnaros")
+            {
+                return new LegendaryItem(item);
+            }
+
             return new UniversalItem(item);
         }
     }

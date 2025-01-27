@@ -20,7 +20,7 @@ public class UniversalItem : UpdateableItem
     {
         if (IsLegendaryItem())
         {
-            UpdateLegendaryItemQuality();
+            throw new Exception("No longer handled here");
         }
         else if (Item.Name == "Aged Brie")
         {
