@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GildedRose
 {
@@ -44,13 +45,11 @@ namespace GildedRose
 
         private void UpdateConjuredItemQuality(Item item)
         {
-            DecreaseItemQuality(item);
-            DecreaseItemQuality(item);
+            DecreaseItemQuality(item, 2);
 
             if (item.SellIn < 0)
             {
-                DecreaseItemQuality(item);
-                DecreaseItemQuality(item);
+                DecreaseItemQuality(item, 2);
             }
         }
 
@@ -107,12 +106,9 @@ namespace GildedRose
             }
         }
 
-        private void DecreaseItemQuality(Item item)
+        private void DecreaseItemQuality(Item item, int amount = 1)
         {
-            if (item.Quality > 0)
-            {
-                item.Quality -= 1;
-            }
+            item.Quality = Math.Max(0, item.Quality - amount);
         }
     }
 }
