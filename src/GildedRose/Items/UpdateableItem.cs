@@ -4,6 +4,8 @@ namespace GildedRose.Items;
 
 public abstract class UpdateableItem
 {
+    private const int MaxItemQuality = 50;
+    
     protected readonly Item Item;
 
     protected UpdateableItem(Item item)
@@ -23,15 +25,12 @@ public abstract class UpdateableItem
     }
     protected abstract void UpdateItemQuality();
     
-    protected void IncreaseItemQuality()
+    protected void IncreaseQuality(int amount = 1)
     {
-        if (Item.Quality < 50)
-        {
-            Item.Quality += 1;
-        }
+        Item.Quality = Math.Min(MaxItemQuality, Item.Quality + amount);
     }
     
-    protected void DecreaseItemQuality(int amount = 1)
+    protected void DecreaseQuality(int amount = 1)
     {
         Item.Quality = Math.Max(0, Item.Quality - amount);
     }

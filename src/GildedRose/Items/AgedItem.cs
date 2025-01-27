@@ -4,11 +4,11 @@ public class AgedItem(Item item) : UpdateableItem(item)
 {
     protected override void UpdateItemQuality()
     {
-        IncreaseItemQuality();
+        IncreaseQuality();
 
         if (Item.SellIn < 0)
         {
-            IncreaseItemQuality();
+            IncreaseQuality();
         }
     }
 }

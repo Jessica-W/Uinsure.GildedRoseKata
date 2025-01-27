@@ -6,11 +6,11 @@ public class StandardItem(Item item) : UpdateableItem(item)
 {
     protected override void UpdateItemQuality()
     {
-            DecreaseItemQuality();
+            DecreaseQuality();
 
             if (Item.SellIn < 0)
             {
-                DecreaseItemQuality();
+                DecreaseQuality();
             }
     }
 }

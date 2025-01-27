@@ -12,7 +12,7 @@ namespace GildedRoseTests
         private const string BackstagePassItemName = "Backstage passes to a TAFKAL80ETC concert";
         private const string ConjuredItemName = "Conjured Mana Cake";
 
-        private GildedRoseInventory CreateUnitUnderTest(Item item) => new GildedRoseInventory(new List<Item> { item });
+        private GildedRoseInventory CreateUnitUnderTest(Item item) => new GildedRoseInventory(new UpdateableItemFactory(), new List<Item> { item });
 
         [TestCase(1, StandardItemName)]
         [TestCase(1, AgedItemName)]

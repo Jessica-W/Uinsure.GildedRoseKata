@@ -4,21 +4,20 @@ public class BackstagePass(Item item) : UpdateableItem(item)
 {
     protected override void UpdateItemQuality()
     {
-        IncreaseItemQuality();
-
-        if (Item.SellIn < 10)
+        switch (Item.SellIn)
         {
-            IncreaseItemQuality();
-        }
-
-        if (Item.SellIn < 5)
-        {
-            IncreaseItemQuality();
-        }
-
-        if (Item.SellIn < 0)
-        {
-            Item.Quality = 0;
+            case < 0:
+                Item.Quality = 0;
+                break;
+            case < 5:
+                IncreaseQuality(3);
+                break;
+            case < 10:
+                IncreaseQuality(2);
+                break;
+            default:
+                IncreaseQuality();
+                break;
         }
     }
 }
