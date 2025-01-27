@@ -1,11 +1,7 @@
 namespace GildedRose.Items;
 
-public class ConjuredItem : UpdateableItem
+public class ConjuredItem(Item item) : UpdateableItem(item)
 {
-    public ConjuredItem(Item item) : base(item)
-    {
-    }
-
     protected override void UpdateItemQuality()
     {
         DecreaseItemQuality(2);

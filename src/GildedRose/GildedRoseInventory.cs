@@ -44,7 +44,7 @@ namespace GildedRose
                 return new ConjuredItem(item);
             }
 
-            return new UniversalItem(item);
+            return new StandardItem(item);
         }
     }
 }

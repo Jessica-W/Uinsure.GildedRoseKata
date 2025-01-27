@@ -1,11 +1,7 @@
 namespace GildedRose.Items;
 
-public class AgedItem : UpdateableItem
+public class AgedItem(Item item) : UpdateableItem(item)
 {
-    public AgedItem(Item item) : base(item)
-    {
-    }
-
     protected override void UpdateItemQuality()
     {
         IncreaseItemQuality();

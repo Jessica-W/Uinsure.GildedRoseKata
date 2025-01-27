@@ -1,11 +1,7 @@
 namespace GildedRose.Items;
 
-public class BackstagePass : UpdateableItem
+public class BackstagePass(Item item) : UpdateableItem(item)
 {
-    public BackstagePass(Item item) : base(item)
-    {
-    }
-
     protected override void UpdateItemQuality()
     {
         IncreaseItemQuality();

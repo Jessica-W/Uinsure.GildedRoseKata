@@ -1,11 +1,7 @@
 namespace GildedRose.Items;
 
-public class LegendaryItem : UpdateableItem
+public class LegendaryItem(Item item) : UpdateableItem(item)
 {
-    public LegendaryItem(Item item) : base(item)
-    {
-    }
-
     protected override void UpdateItemSellIn()
     {
         // Never has to be sold
