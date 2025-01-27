@@ -31,11 +31,21 @@ namespace GildedRose
                 {
                     UpdateBackstagePassQuality(item);
                 }
+                else if (item.Name.StartsWith("Conjured"))
+                {
+                    UpdateConjuredItemQuality(item);
+                }
                 else
                 {
                     UpdateStandardItemQuality(item);
                 }
             }
+        }
+
+        private void UpdateConjuredItemQuality(Item item)
+        {
+            DecreaseItemQuality(item);
+            DecreaseItemQuality(item);
         }
 
         private static void UpdateLegendaryItemQuality(Item item)

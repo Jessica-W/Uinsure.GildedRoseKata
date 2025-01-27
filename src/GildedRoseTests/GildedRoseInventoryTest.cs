@@ -289,5 +289,39 @@ namespace GildedRoseTests
         }
 
         #endregion
+        
+        #region Conjured Items
+
+        [Test]
+        public void
+            GivenConjuredItemWhichIsNotPastItsSellByWithQualityGreaterThanOne_WhenUpdateItemIsCalled_ThenQualityIsDecreasedByTwo()
+        {
+            // Given
+            var item = new Item { Quality = 3, SellIn = 1, Name = ConjuredItemName };
+            var unitUnderTest = CreateUnitUnderTest(item);
+
+            // When
+            unitUnderTest.UpdateItem();
+
+            // Then
+            Assert.That(item.Quality, Is.EqualTo(1));
+        }
+        
+        [Test]
+        public void
+            GivenConjuredItemWhichIsNotPastItsSellByWithQualityOfOne_WhenUpdateItemIsCalled_ThenQualityIsDecreasedToZero()
+        {
+            // Given
+            var item = new Item { Quality = 1, SellIn = 1, Name = ConjuredItemName };
+            var unitUnderTest = CreateUnitUnderTest(item);
+
+            // When
+            unitUnderTest.UpdateItem();
+
+            // Then
+            Assert.That(item.Quality, Is.EqualTo(0));
+        }
+
+        #endregion Conjured Items
     }
 }
