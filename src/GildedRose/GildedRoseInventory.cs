@@ -34,6 +34,11 @@ namespace GildedRose
                 return new LegendaryItem(item);
             }
 
+            if (item.Name.StartsWith("Backstage passes "))
+            {
+                return new BackstagePass(item);
+            }
+
             return new UniversalItem(item);
         }
     }

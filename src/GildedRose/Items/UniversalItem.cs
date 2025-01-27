@@ -28,7 +28,7 @@ public class UniversalItem : UpdateableItem
         }
         else if (Item.Name == "Backstage passes to a TAFKAL80ETC concert")
         {
-            UpdateBackstagePassQuality();
+            throw new Exception("No longer handled here");
         }
         else if (Item.Name.StartsWith("Conjured"))
         {
@@ -55,11 +55,6 @@ public class UniversalItem : UpdateableItem
         }
     }
 
-    private void UpdateLegendaryItemQuality()
-    {
-        Item.Quality = 80;
-    }
-
     private void UpdateStandardItemQuality()
     {
         DecreaseItemQuality();
@@ -67,36 +62,6 @@ public class UniversalItem : UpdateableItem
         if (Item.SellIn < 0)
         {
             DecreaseItemQuality();
-        }
-    }
-
-    private void UpdateBackstagePassQuality()
-    {
-        IncreaseItemQuality();
-
-        if (Item.SellIn < 10)
-        {
-            IncreaseItemQuality();
-        }
-
-        if (Item.SellIn < 5)
-        {
-            IncreaseItemQuality();
-        }
-
-        if (Item.SellIn < 0)
-        {
-            Item.Quality = 0;
-        }
-    }
-
-    private void UpdateAgedBrieQuality()
-    {
-        IncreaseItemQuality();
-
-        if (Item.SellIn < 0)
-        {
-            IncreaseItemQuality();
         }
     }
 }
