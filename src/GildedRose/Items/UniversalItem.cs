@@ -32,7 +32,7 @@ public class UniversalItem : UpdateableItem
         }
         else if (Item.Name.StartsWith("Conjured"))
         {
-            UpdateConjuredItemQuality();
+            throw new Exception("No longer handled here");
         }
         else
         {
@@ -43,16 +43,6 @@ public class UniversalItem : UpdateableItem
     private bool IsLegendaryItem()
     {
         return Item.Name == "Sulfuras, Hand of Ragnaros";
-    }
-
-    private void UpdateConjuredItemQuality()
-    {
-        DecreaseItemQuality(2);
-
-        if (Item.SellIn < 0)
-        {
-            DecreaseItemQuality(2);
-        }
     }
 
     private void UpdateStandardItemQuality()

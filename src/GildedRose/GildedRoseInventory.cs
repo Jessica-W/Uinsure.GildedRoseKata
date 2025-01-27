@@ -39,6 +39,11 @@ namespace GildedRose
                 return new BackstagePass(item);
             }
 
+            if (item.Name.StartsWith("Conjured "))
+            {
+                return new ConjuredItem(item);
+            }
+
             return new UniversalItem(item);
         }
     }
