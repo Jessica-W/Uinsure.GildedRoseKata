@@ -1,3 +1,5 @@
+using System;
+
 namespace GildedRose.Items;
 
 public class UniversalItem : UpdateableItem
@@ -22,7 +24,7 @@ public class UniversalItem : UpdateableItem
         }
         else if (Item.Name == "Aged Brie")
         {
-            UpdateAgedBrieQuality();
+            throw new Exception("No longer handled here");
         }
         else if (Item.Name == "Backstage passes to a TAFKAL80ETC concert")
         {

@@ -24,6 +24,11 @@ namespace GildedRose
 
         private UpdateableItem UpdateableItemFromItem(Item item)
         {
+            if (item.Name.StartsWith("Aged "))
+            {
+                return new AgedItem(item);
+            }
+
             return new UniversalItem(item);
         }
     }
