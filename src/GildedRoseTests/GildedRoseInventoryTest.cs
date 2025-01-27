@@ -321,6 +321,44 @@ namespace GildedRoseTests
             // Then
             Assert.That(item.Quality, Is.EqualTo(0));
         }
+        
+        [TestCase(0)]
+        [TestCase(-1)]
+        public void
+            GivenConjuredItemWhichIsPastItsSellByWithQualityGreaterThanThree_WhenUpdateItemIsCalled_ThenQualityIsDecreasedByFour(int sellIn)
+        {
+            // Given
+            var item = new Item { Quality = 5, SellIn = sellIn, Name = ConjuredItemName };
+            var unitUnderTest = CreateUnitUnderTest(item);
+
+            // When
+            unitUnderTest.UpdateItem();
+
+            // Then
+            Assert.That(item.Quality, Is.EqualTo(1));
+        }
+        
+        [TestCase(0, 1)]
+        [TestCase(-1, 1)]
+        [TestCase(0, 2)]
+        [TestCase(-1, 2)]
+        [TestCase(0, 3)]
+        [TestCase(-1, 3)]
+        [TestCase(0, 4)]
+        [TestCase(-1, 4)]
+        public void
+            GivenConjuredItemWhichIsPastItsSellByWithQualityFourOrLess_WhenUpdateItemIsCalled_ThenQualityIsDecreasedToZero(int sellIn, int initialQuality)
+        {
+            // Given
+            var item = new Item { Quality = initialQuality, SellIn = sellIn, Name = ConjuredItemName };
+            var unitUnderTest = CreateUnitUnderTest(item);
+
+            // When
+            unitUnderTest.UpdateItem();
+
+            // Then
+            Assert.That(item.Quality, Is.EqualTo(0));
+        }
 
         #endregion Conjured Items
     }

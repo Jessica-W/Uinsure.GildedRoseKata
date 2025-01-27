@@ -46,6 +46,12 @@ namespace GildedRose
         {
             DecreaseItemQuality(item);
             DecreaseItemQuality(item);
+
+            if (item.SellIn < 0)
+            {
+                DecreaseItemQuality(item);
+                DecreaseItemQuality(item);
+            }
         }
 
         private static void UpdateLegendaryItemQuality(Item item)
